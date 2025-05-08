@@ -3,17 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alluisio Silva</title>
+    <meta
+      name="description"
+      content="Página de contato. Envie uma mensagem ou conecte-se pelas redes sociais."
+    />
+    <title>Contato | Alluisio Silva</title>
 
     <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/principal.css" />
+    <link rel="stylesheet" href="styles/navigation-bar.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="top-nav-bar">
-      <a href="index.html">Início</a>
-      <a href="about-me.html">Sobre mim</a>
-      <a href="portfolio.html">Portfólio</a>
-      <a class="active" href="contact.html">Contato</a>
-    </div>
+    <nav id="top-nav-bar" role="navigation">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="about-me.html">Sobre mim</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li>
+          <a class="active" href="contact.html" aria-current="page">Contato</a>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>
