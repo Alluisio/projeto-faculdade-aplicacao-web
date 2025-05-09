@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/navigation-bar.css" />
 
+    <link rel="stylesheet" href="styles/portfolio.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,17 +22,77 @@
     />
   </head>
   <body>
-    <nav id="top-nav-bar" role="navigation">
-      <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="about-me.html">Sobre mim</a></li>
-        <li>
-          <a class="active" href="portfolio.html" aria-current="page"
-            >Portfólio</a
-          >
-        </li>
-        <li><a href="contact.html">Contato</a></li>
-      </ul>
-    </nav>
+    <header>
+      <nav id="top-nav-bar" role="navigation">
+        <ul>
+          <li>
+            <a href="/">Início</a>
+          </li>
+          <li><a href="about-me.html">Sobre mim</a></li>
+          <li>
+            <a href="portfolio.html" class="active" aria-current="page"
+              >Portfólio</a
+            >
+          </li>
+          <li><a href="contact.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="repos">
+        <h1>Meus Repositórios públicos do GitHub</h1>
+        <ul id="repo-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Alluisio Silva — Feito com 💻 e ☕</p>
+    </footer>
+
+    <script>
+      fetch(
+        "https://api.github.com/users/Alluisio/repos?per_page=100&sort=created&direction=desc"
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const repoList = document.getElementById("repo-list");
+
+          data.forEach((repo) => {
+            const li = document.createElement("li");
+
+            const link = document.createElement("a");
+            link.href = repo.html_url;
+            link.textContent = repo.name;
+            link.target = "_blank";
+
+            const description = document.createElement("p");
+            description.textContent = repo.description
+              ? repo.description
+              : "Sem descrição disponível.";
+            description.style.margin = "0.25rem 0";
+
+            const language = document.createElement("p");
+            language.textContent = `Linguagem: ${
+              repo.language || "Não especificada"
+            }`;
+
+            const date = document.createElement("p");
+            date.textContent = `Criado em: ${new Date(
+              repo.created_at
+            ).toLocaleDateString("pt-BR")}`;
+
+            li.appendChild(link);
+            li.appendChild(description);
+            li.appendChild(language);
+            li.appendChild(date);
+
+            repoList.appendChild(li);
+          });
+        })
+        .catch((err) => {
+          console.error("Erro ao buscar repositórios:", err);
+        });
+    </script>
   </body>
 </html>
