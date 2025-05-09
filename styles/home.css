@@ -1,0 +1,108 @@
+main,
+#apresentacao {
+  padding: 1rem;
+}
+
+#apresentacao > #foto-descricao {
+  display: flex;
+  gap: 1.5rem;
+}
+
+#minha-foto {
+  width: 250px;
+  border-radius: 12px;
+}
+
+main.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+main.grid-layout #apresentacao {
+  grid-column: 1 / -1;
+}
+
+#conhecimentos-tech > ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  margin: 0;
+  margin-top: 1.3rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+#jogos li:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  #apresentacao > #foto-descricao {
+    flex-direction: column;
+  }
+
+  #foto-descricao > img {
+    width: 100%;
+  }
+
+  main.grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1299px) {
+  main.grid-layout {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  main.grid-layout #gostos {
+    grid-column: 1 / 4;
+  }
+
+  main.grid-layout #conhecimentos-tech {
+    grid-column: 4 / 7;
+  }
+
+  main.grid-layout #jogos {
+    grid-column: 1 / 7;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  main.grid-layout {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  main.grid-layout #apresentacao {
+    grid-column: 2 / 12;
+  }
+
+  main.grid-layout #gostos {
+    grid-column: 2 / 5;
+  }
+
+  main.grid-layout #conhecimentos-tech {
+    grid-column: 5 / 9;
+  }
+
+  main.grid-layout #jogos {
+    grid-column: 9 / 12;
+  }
+}
