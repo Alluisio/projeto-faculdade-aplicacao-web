@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
+
   font-family: "Open Sans", sans-serif;
 }
 
@@ -36,4 +37,9 @@
 
 #repo-list a:hover {
   color: #1abc9c;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
 }
