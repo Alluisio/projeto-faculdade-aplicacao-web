@@ -1,0 +1,100 @@
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin-top: 40px;
+  padding: 2rem;
+}
+
+main #informacoes-profissionais h1 {
+  text-align: center;
+}
+
+#imagem-texto-empresa {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 1.3rem;
+}
+
+#imagem-texto-empresa img {
+  border-radius: 12px;
+}
+
+#imagem-texto-empresa p {
+  margin: 0;
+}
+
+#informacoes-empresa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#atividades-desenvolvidas {
+  margin-top: 1.3rem;
+}
+
+#atividade-list {
+  list-style: none;
+  padding: 0;
+}
+
+#atividade-list li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+#cursos-profissionalizantes,
+#informacoes-educacionais {
+  margin-top: 2.5rem;
+}
+
+#curso-list {
+  list-style: none;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+}
+
+#curso-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#curso-list li img {
+  width: 60px;
+  border-radius: 12px;
+}
+
+#curso-list li .instituicao-curso {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+#curso-list li .instituicao-curso a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#curso-list li .instituicao-curso a:hover {
+  color: #1abc9c;
+}
+
+/* @media screen and (max-width: 880px) {
+  grid-template-columns: repeat(2, 1fr);
+} */
+
+@media screen and (max-width: 880px) {
+  #curso-list {
+    grid-template-columns: 1fr;
+  }
+}

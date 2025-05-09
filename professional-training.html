@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Página de informações profissionais. " />
+    <title>Profissional / Acadêmico | Alluisio Silva</title>
+
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/navigation-bar.css" />
+    <link rel="stylesheet" href="styles/about-me.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="top-nav-bar" role="navigation">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li>
+            <a
+              class="active"
+              href="professional-training.html"
+              aria-current="page"
+              >Informações Profissionais e acadêmicas</a
+            >
+          </li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="contact.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="informacoes-profissionais">
+        <h1>Informações profissionais</h1>
+
+        <section class="info-card">
+          <h2>Emprego atual</h2>
+
+          <section class="content">
+            <section id="imagem-texto-empresa">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D4D0BAQHpgvJUacaSRQ/company-logo_100_100/company-logo_100_100/0/1736270058651/institutoipdec_logo?e=1752105600&v=beta&t=LS7I8uvs_vHyGN0VFmXpJd0rx0RSfYAhv11A6QHbVUk"
+                alt="logo da empresa IPDEC"
+              />
+              <div id="informacoes-empresa">
+                <h3>Desenvolvedor de software</h3>
+                <p>
+                  IPDEC - Instituto de Inovação, Pesquisa, Desenvolvimento
+                  Científico e Tecnológico do Amazonas
+                </p>
+                <p>Desde agosto de 2020</p>
+              </div>
+            </section>
+
+            <section id="atividades-desenvolvidas">
+              <h3>Principais atividades</h3>
+              <ul id="atividade-list">
+                <li>
+                  Desenvolvimento Front-end em React e VueJs, utilizando
+                  Typescript
+                </li>
+                <li>Desenvolvimento Mobile em React Native com Typescript</li>
+                <li>
+                  Desenvolvimento Back-end com Framework SpringBoot e NestJs
+                </li>
+                <li>Integração de API REST</li>
+                <li>
+                  Versionamento de Código com GitHub, GitLab, Azure DevOPS
+                </li>
+                <li>Utilização de metodologias ágeis</li>
+                <li>Utilização de Boards e Repositórios do Azure</li>
+              </ul>
+            </section>
+          </section>
+        </section>
+      </section>
+
+      <section id="informacoes-educacionais">
+        <h2>Formação acadêmica</h2>
+
+        <p>CENTRO UNIVERSITÁRIO INTERNACIONAL</p>
+        <p>Curso: Bacharelado em Engenharia de Software</p>
+        <p>2023 - 2027 (prévia de conclusão).</p>
+      </section>
+
+      <section id="cursos-profissionalizantes">
+        <h2>Meus principais cursos</h2>
+        <ul id="curso-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Alluisio Silva — Feito com 💻 e ☕</p>
+    </footer>
+
+    <script>
+      fetch("/assets/json/cursos.json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          const cursoList = document.getElementById("curso-list");
+
+          data.cursos.forEach((curso) => {
+            const li = document.createElement("li");
+
+            const link = document.createElement("a");
+            link.href = curso?.certificado;
+            link.textContent = curso.curso;
+            link.target = "_blank";
+
+            const instituicao = document.createElement("span");
+            instituicao.textContent = curso.instituicao;
+
+            const logo = document.createElement("img");
+            logo.className = "logo-instituicao";
+            logo.src =
+              curso.instituicao === "ALURA" ? data.aluraLogo : data.uninterLogo;
+            logo.alt = "Logo da instituição: " + curso.instituicao;
+
+            const sectionInstituicaoCurso = document.createElement("section");
+            sectionInstituicaoCurso.className = "instituicao-curso";
+            sectionInstituicaoCurso.appendChild(instituicao);
+            sectionInstituicaoCurso.appendChild(link);
+
+            li.appendChild(logo);
+            li.appendChild(sectionInstituicaoCurso);
+
+            cursoList.appendChild(li);
+          });
+        })
+        .catch((error) => {
+          console.error("Erro ao carregar o JSON:", error);
+        });
+    </script>
+  </body>
+</html>
