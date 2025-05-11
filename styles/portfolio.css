@@ -16,6 +16,17 @@
 #repo-list {
   list-style: none;
   padding: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+#repo-list.loaded {
+  display: block;
+}
+
+#repo-list.loaded > div {
+  display: none;
 }
 
 #repo-list li {

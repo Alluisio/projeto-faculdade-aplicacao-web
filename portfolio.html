@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/navigation-bar.css" />
 
     <link rel="stylesheet" href="styles/portfolio.css" />
+    <link rel="stylesheet" href="styles/loader.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,7 +47,9 @@
     <main>
       <section id="repos">
         <h1>Meus Repositórios públicos do GitHub</h1>
-        <ul id="repo-list"></ul>
+        <ul id="repo-list">
+          <div class="loader"></div>
+        </ul>
       </section>
     </main>
 
@@ -60,6 +63,7 @@
       )
         .then((res) => res.json())
         .then((data) => {
+          const loadingElement = document.getElementsByClassName("loader");
           const repoList = document.getElementById("repo-list");
 
           data.forEach((repo) => {
@@ -93,6 +97,8 @@
 
             repoList.appendChild(li);
           });
+
+          repoList.className = "loaded";
         })
         .catch((err) => {
           console.error("Erro ao buscar repositórios:", err);
