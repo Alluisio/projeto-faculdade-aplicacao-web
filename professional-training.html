@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/navigation-bar.css" />
+
     <link rel="stylesheet" href="styles/about-me.css" />
+    <link rel="stylesheet" href="styles/loader.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -92,7 +94,9 @@
 
       <section id="cursos-profissionalizantes">
         <h2>Meus principais cursos</h2>
-        <ul id="curso-list"></ul>
+        <ul id="curso-list">
+          <div id="loader" class="loader"></div>
+        </ul>
       </section>
     </main>
 
@@ -104,8 +108,7 @@
       fetch("./assets/json/cursos.json")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-
+          const loaderElement = document.getElementById("loader");
           const cursoList = document.getElementById("curso-list");
 
           data.cursos.forEach((curso) => {
@@ -135,6 +138,8 @@
 
             cursoList.appendChild(li);
           });
+
+          loaderElement.remove();
         })
         .catch((error) => {
           console.error("Erro ao carregar o JSON:", error);
