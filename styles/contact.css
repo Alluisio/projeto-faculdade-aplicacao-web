@@ -94,7 +94,7 @@ button:hover {
 
 #redes-sociais {
   display: flex;
-  gap: 8px;
+  gap: 32px;
 }
 
 #redes-sociais svg {
