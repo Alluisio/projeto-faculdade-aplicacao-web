@@ -1,0 +1,108 @@
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main {
+  margin-top: 40px;
+  padding: 2rem;
+}
+
+main #titulo {
+  text-align: center;
+}
+
+main #conteudo {
+  max-width: 40vw;
+
+  margin: 0 auto;
+}
+
+#conteudo #form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  padding: 4px 8px;
+}
+
+textarea {
+  padding: 8px;
+}
+
+.inputs input {
+  height: 36px;
+}
+
+.inputs input,
+#mensagem {
+  border-radius: 8px;
+  border: 0.5px #c0c0c0 solid;
+  box-shadow: 5px 3px 3px #000000ac;
+  width: 100%;
+}
+
+.inputs input:active,
+.inputs input:focus-visible,
+#mensagem {
+  outline: none;
+}
+
+#mensagem {
+  resize: none;
+}
+
+#botoes {
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+}
+
+#botoes button {
+  height: 36px;
+  border-radius: 8px;
+  outline: none;
+  border: 0.5px #c0c0c0 solid;
+  padding: 8px 16px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#botoes #reset {
+  background-color: #e93445;
+  color: #fff;
+}
+
+#botoes #submit {
+  background-color: #1cc487;
+}
+
+#redes-sociais {
+  display: flex;
+  gap: 8px;
+}
+
+#redes-sociais svg {
+  width: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  main #conteudo {
+    max-width: 100vw;
+  }
+}
